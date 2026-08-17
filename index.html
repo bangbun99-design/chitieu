@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <title>Sổ Chi Tiêu Gia Đình</title>
 
-  <!-- ICON ỨNG DỤNG CHO IPHONE -->
   <link rel="apple-touch-icon" sizes="180x180" href="https://img.icons8.com/fluency/512/wallet.png">
   <link rel="icon" type="image/png" href="https://img.icons8.com/fluency/512/wallet.png">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -14,77 +13,35 @@
 
   <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@400;600;700&display=swap" rel="stylesheet">
   <style>
-    body {
-      margin: 0;
-      padding: 16px 10px;
-      font-family: 'Comfortaa', cursive, sans-serif;
-      background-color: #F8FAFC;
-      color: #1E293B;
-    }
+    body { margin: 0; padding: 16px 10px; font-family: 'Comfortaa', cursive, sans-serif; background-color: #F8FAFC; color: #1E293B; }
     .container { max-width: 950px; margin: 0 auto; }
-    
-    .tabs-wrapper {
-      display: flex;
-      gap: 8px;
-      overflow-x: auto;
-      padding: 4px 2px 14px 2px;
-      margin-bottom: 12px;
-      -webkit-overflow-scrolling: touch;
-      scrollbar-width: none;
-    }
+    .tabs-wrapper { display: flex; gap: 8px; overflow-x: auto; padding: 4px 2px 14px 2px; margin-bottom: 12px; -webkit-overflow-scrolling: touch; scrollbar-width: none; }
     .tabs-wrapper::-webkit-scrollbar { display: none; }
-    
-    .tab-btn {
-      flex-shrink: 0;
-      padding: 9px 16px;
-      font-family: 'Comfortaa', cursive, sans-serif;
-      font-weight: 700;
-      font-size: 13px;
-      border-radius: 20px;
-      cursor: pointer;
-      white-space: nowrap;
-      transition: all 0.2s ease;
-    }
-
+    .tab-btn { flex-shrink: 0; padding: 9px 16px; font-family: 'Comfortaa', cursive, sans-serif; font-weight: 700; font-size: 13px; border-radius: 20px; cursor: pointer; white-space: nowrap; transition: all 0.2s ease; }
     .btn-family { background: #E6FFFA; color: #0F766E; border: 1.5px solid #99F6E4; }
     .btn-family.active { background: #0F766E !important; color: #FFFFFF !important; box-shadow: 0 4px 12px rgba(15, 118, 110, 0.35); }
-
     .btn-chong { background: #EFF6FF; color: #1E40AF; border: 1.5px solid #BFDBFE; }
     .btn-chong.active { background: #2563EB !important; color: #FFFFFF !important; box-shadow: 0 4px 12px rgba(37, 99, 235, 0.35); }
-
     .btn-vo { background: #FDF2F8; color: #BE185D; border: 1.5px solid #F472B6; font-weight: 700; }
     .btn-vo.active { background: #DB2777 !important; color: #FFFFFF !important; box-shadow: 0 4px 14px rgba(219, 39, 119, 0.4); }
-
     .tab-content { display: none; overflow-x: auto; background: #FFFFFF; padding: 16px; border-radius: 16px; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05); }
     .tab-content.active { display: block; }
-    
     .summary-card { padding: 12px 16px; border-radius: 12px; margin-bottom: 15px; display: flex; justify-content: space-between; align-items: center; font-size: 14px; }
     .summary-card-family { background: #F0FDF4; border: 1px solid #BBF7D0; color: #166534; }
     .summary-card-chong { background: #EFF6FF; border: 1px solid #BFDBFE; color: #1E40AF; }
     .summary-card-vo { background: #FDF2F8; border: 1px solid #FBCFE8; color: #9D174D; }
     .summary-card strong { font-size: 18px; }
-
     .custom-table { width: 100%; border-collapse: collapse; font-size: 12px; background-color: #FFFFFF; }
     .custom-table th { background-color: #1E293B; color: #FFFFFF; padding: 12px 8px; font-weight: 700; text-align: center; border: 1px solid #334155; }
     .custom-table tr { background-color: #FFFFFF !important; }
     .custom-table td { background-color: #FFFFFF !important; padding: 10px 8px; text-align: center; border: 1px solid #E2E8F0; }
-    
     .badge-thu { padding: 3px 7px; background: #F1F5F9; border-radius: 6px; font-weight: 700; }
     .badge-cn { padding: 3px 7px; background: #FECDD3; color: #9F1239; border-radius: 6px; font-weight: 700; }
-    
     .item-tag { display: inline-block; margin: 2px 4px; padding: 3px 8px; border-radius: 6px; background: #F8FAFC; border: 1px solid #E2E8F0; }
     .item-black { color: #0F172A; }
     .item-orange { color: #D97706; background: #FEF3C7; border-color: #FDE68A; }
     .item-red { color: #DC2626; background: #FEE2E2; border-color: #FECACA; }
-    
-    .skeleton-box {
-      background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
-      background-size: 200% 100%;
-      animation: shimmer 1.2s infinite;
-      border-radius: 8px;
-      height: 28px;
-      margin: 8px 0;
-    }
+    .skeleton-box { background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%); background-size: 200% 100%; animation: shimmer 1.2s infinite; border-radius: 8px; height: 28px; margin: 8px 0; }
     @keyframes shimmer { 0% { background-position: 200% 0; } 100% { background-position: -200% 0; } }
     .loading-wrapper { padding: 20px; text-align: center; color: #64748B; font-size: 13px; }
   </style>
@@ -101,7 +58,7 @@
           <div class="skeleton-box"></div>
           <div class="skeleton-box"></div>
           <div class="skeleton-box"></div>
-          <p style="margin-top: 12px;">⚡ Đang lấy dữ liệu chi tiêu từ Google Sheets...</p>
+          <p id="loading-msg" style="margin-top: 12px;">⚡ Đang lấy dữ liệu chi tiêu từ Google Sheets...</p>
         </div>
       </div>
     </div>
@@ -109,53 +66,61 @@
 
   <script>
     const API_URL = "https://script.google.com/macros/s/AKfycbyB7ReKF2kfzG-UN_dWeLxgkjxeN2tIrBpwolj7xSY_XJzOxam3OLjDHNbmQwwh_f3tfA/exec";
-    const CACHE_KEY = "FAMILY_EXPENSE_LOCAL_V4";
+    const CACHE_KEY = "FAMILY_EXPENSE_LOCAL_V5";
+    let isDataLoaded = false;
     let currentActiveTabId = "tab-family";
 
-    // 1. Hiển thị ngay số liệu cũ từ máy nếu có (0.01 giây)
+    // 1. Hiển thị ngay bộ nhớ đệm nếu có
     const cached = localStorage.getItem(CACHE_KEY);
     if (cached) {
       try { renderData(JSON.parse(cached)); } catch(e){}
     }
 
-    // 2. Lấy số liệu JSON mới nhất từ Google Apps Script
+    // 2. Hàm tiếp nhận dữ liệu an toàn
+    window.processResponseData = function(data) {
+      if (isDataLoaded) return;
+      if (data && data.status === "success") {
+        isDataLoaded = true;
+        localStorage.setItem(CACHE_KEY, JSON.stringify(data));
+        renderData(data);
+      }
+    };
+
+    // 3. Cơ chế kết nối kép: Gọi Fetch trước, nếu bị chặn tự động gọi JSONP
     window.onload = function() {
+      // Cách 1: Thử Fetch
       fetch(API_URL)
-        .then(response => {
-          if (!response.ok) throw new Error("HTTP error " + response.status);
-          return response.json();
-        })
-        .then(data => {
-          if (data && data.status === "success") {
-            localStorage.setItem(CACHE_KEY, JSON.stringify(data));
-            renderData(data);
-          } else {
-            throw new Error("Dữ liệu trả về chưa đúng định dạng");
-          }
-        })
+        .then(res => res.json())
+        .then(data => { window.processResponseData(data); })
         .catch(err => {
-          console.error("Fetch error:", err);
-          if (!cached) {
-            document.getElementById('tab-containers').innerHTML = 
-              '<div style="text-align:center; padding:30px; color:#DC2626;">' +
-                '<p style="font-weight:700;">⚠️ Chưa tải được dữ liệu</p>' +
-                '<p style="font-size:12px; color:#64748B;">Lỗi: ' + err.message + '</p>' +
-              '</div>';
+          // Cách 2: Gọi JSONP vượt tường lửa nếu Fetch bị CORS chặn
+          if (!isDataLoaded) {
+            const script = document.createElement("script");
+            script.src = API_URL + "?callback=processResponseData&t=" + new Date().getTime();
+            script.onerror = function() {
+              if (!cached) {
+                document.getElementById('tab-containers').innerHTML = 
+                  '<div style="text-align:center; padding:30px; color:#DC2626;">' +
+                    '<p style="font-weight:700;">⚠️ Chưa kết nối được với Google Sheets</p>' +
+                    '<p style="font-size:12px; color:#64748B;">Hãy đảm bảo bạn đã vào Apps Script bấm <b>Deploy > New Version</b></p>' +
+                  '</div>';
+              }
+            };
+            document.body.appendChild(script);
           }
         });
     };
 
     function renderData(data) {
       if (!data) return;
-
       let tabButtonsHtml = "";
       let tabContentsHtml = "";
 
       let isFamilyActive = (currentActiveTabId === "tab-family") ? " active" : "";
       tabButtonsHtml += '<button class="tab-btn btn-family' + isFamilyActive + '" onclick="switchTab(\\'tab-family\\', this)">👨‍👩‍👧 Tổng Hợp Gia Đình</button>';
-      tabContentsHtml += '<div id="tab-family" class="tab-content' + isFamilyActive + '">' + data.familyHtml + '</div>';
+      tabContentsHtml += '<div id="tab-family" class="tab-content' + isFamilyActive + '">' + (data.familyHtml || "") + '</div>';
 
-      if (data.chongTabs) {
+      if (data.chongTabs && Array.isArray(data.chongTabs)) {
         data.chongTabs.forEach((tab, idx) => {
           let id = "tab-chong-" + idx;
           let isActive = (currentActiveTabId === id) ? " active" : "";
@@ -164,7 +129,7 @@
         });
       }
 
-      if (data.voTabs) {
+      if (data.voTabs && Array.isArray(data.voTabs)) {
         data.voTabs.forEach((tab, idx) => {
           let id = "tab-vo-" + idx;
           let isActive = (currentActiveTabId === id) ? " active" : "";
